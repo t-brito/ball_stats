@@ -26,6 +26,23 @@ fg attempt
     - FT2 made?
     - FT3 made?
 
+Ball out of bounds
+- possession?
+- who lost it?
+- after shot?
+  - team rebound
+- after interception?
+  - nothing, if team retains possession
+  - steal if team loses possession
+- after error (bad pass, stepping out of bounds)
+  - turnover
+
+change possession
+- steal?
+- ball out?
+- def rebound?
+- basket made?
+
 steal
 - by whom?
 - from whom? (TO)
@@ -39,3 +56,7 @@ foul made
 - by whom?
 - offensive? (TO)
 - against whom?
+
+substitution
+
+timeout
