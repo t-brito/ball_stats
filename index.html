@@ -13,32 +13,97 @@
   <body class="bg-dark">
     <h1 class='text-center text-light'>Basketball Stats</h1>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row" id="actions">
+        <div class="col-sm">
+          <button class="btn btn-block btn-dark project">
+            Shot
+          </button>
+        </div>
+        <div class="col-sm">
+          <button class="btn btn-block btn-dark project">
+            Steal
+          </button>
+        </div>
+        <div class="col-sm">
+          <button class="btn btn-block btn-dark project">
+            Turnover
+          </button>
+        </div>
+        <div class="col-sm">
+          <button class="btn btn-block btn-dark project">
+            Foul
+          </button>
+        </div>
+        <div class="col-sm">
+          <button class="btn btn-block btn-dark project">
+            Substitution
+          </button>
+        </div>
+      </div>
+      <div class="row" id="players">
         <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-2">Player_1_a</div>
-            <div class="col-sm-2">Player_1_b</div>
-            <div class="col-sm-2">Player_1_c</div>
-            <div class="col-sm-2">Player_1_d</div>
-            <div class="col-sm-2">Player_1_e</div>
-            <div class="col-sm-2">Player_1_f</div>
+          <div class="row" id="team1">
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_1_a
+              </button>
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_1_b
+              </button>
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_1_c
+              </button>
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_1_d
+              </button>
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_1_e
+              </button>
+            </div>
           </div>
         </div>
         <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-2">Player_2_a</div>
-            <div class="col-sm-2">Player_2_b</div>
-            <div class="col-sm-2">Player_2_c</div>
-            <div class="col-sm-2">Player_2_d</div>
-            <div class="col-sm-2">Player_2_e</div>
-            <div class="col-sm-2">Player_2_f</div>
+          <div class="row" id="team2">
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_2_a
+              </button>
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_2_b
+              </button>
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_2_c
+              </button>
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_2_d
+              </button>
+            </div>
+            <div class="col-sm">
+              <button class="btn btn-block btn-dark project">
+                Player_2_e
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="tables">
         <div class="col-sm-6">
           <div class="table-responsive">
-            <table id="team1" class="table table-striped table-dark table-hover table-sm">
+            <table id="team1_table" class="table table-striped table-dark table-hover table-sm">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -76,7 +141,7 @@
         </div>
         <div class="col-sm-6">
           <div class="table-responsive">
-            <table id="team2" class="table table-striped table-dark table-hover table-sm">
+            <table id="team2_table" class="table table-striped table-dark table-hover table-sm">
               <thead>
                 <tr>
                   <th scope="col">#</th>
