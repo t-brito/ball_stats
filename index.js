@@ -6,49 +6,56 @@ function getStat(elem, key_list) {
 
     switch(key_list) {
       case '#points':
-        result = 2*Number(getStat(elem, 'two_pt.made'))
-               + 3*Number(getStat(elem, 'three_pt.made'))
-               + 1*Number(getStat(elem, 'free_throws.made'));
+        result = 2*getStat(elem, 'two_pt.made')
+               + 3*getStat(elem, 'three_pt.made')
+               + 1*getStat(elem, 'free_throws.made');
+        break;
+      case '#min':
+        result = getStat(elem, 'time');
+        let min = Math.floor(result/60);
+        min = (min < 10 ? '0'+min : min);
+        let sec = result % 60;
+        sec = (sec < 10 ? '0'+sec : sec);
+        result = min + ':' + sec;
         break;
       case '#field_goals-made':
-        result = Number(getStat(elem, 'two_pt.made'))
-               + Number(getStat(elem, 'three_pt.made'));
+        result = getStat(elem, 'two_pt.made')
+               + getStat(elem, 'three_pt.made');
         break;
       case '#field_goals-att':
-        result = Number(getStat(elem, 'two_pt.att'))
-               + Number(getStat(elem, 'three_pt.att'));
+        result = getStat(elem, 'two_pt.att')
+               + getStat(elem, 'three_pt.att');
         break;
       case '#field_goals-pct':
-        result = Number(getStat(elem, '#field_goals-made'))
-               / Number(getStat(elem, '#field_goals-att'));
+        result = getStat(elem, '#field_goals-made')
+               / getStat(elem, '#field_goals-att');
         result = Math.round(result*10000) / 100; // % to 2 decimal places
         result = result + '%';
         break;
       case '#two_pt-pct':
-        result = Number(getStat(elem, 'two_pt.made'))
-               / Number(getStat(elem, 'two_pt.att'));
+        result = getStat(elem, 'two_pt.made')
+               / getStat(elem, 'two_pt.att');
         result = Math.round(result*10000) / 100; // % to 2 decimal places
         result = result + '%';
         break;
       case '#three_pt-pct':
-        result = Number(getStat(elem, 'three_pt.made'))
-               / Number(getStat(elem, 'three_pt.att'));
+        result = getStat(elem, 'three_pt.made')
+               / getStat(elem, 'three_pt.att');
         result = Math.round(result*10000) / 100; // % to 2 decimal places
         result = result + '%';
         break;
       case '#free_throws-pct':
-        result = Number(getStat(elem, 'free_throws.made'))
-               / Number(getStat(elem, 'free_throws.att'));
+        result = getStat(elem, 'free_throws.made')
+               / getStat(elem, 'free_throws.att');
         result = Math.round(result*10000) / 100; // % to 2 decimal places
         result = result + '%';
         break;
       case '#rebounds':
-        result = Number(getStat(elem, 'rebounds.def'))
-               + Number(getStat(elem, 'rebounds.off'));
+        result = getStat(elem, 'rebounds.def')
+               + getStat(elem, 'rebounds.off');
         break;
     }
     return result;
-
   }
   else {
     let keys = key_list.split('.');
@@ -65,18 +72,17 @@ function getStat(elem, key_list) {
 }
 
 function buildTable(table_element, stat_list, player_list) {
-//     var table = $("<table/>").addClass('CSSTableGenerator');
     // header row
     var row = $("<tr/>");
-    $.each(stat_list, function(colIndex, stat) { // TODO remove colIndex?
+    $.each(stat_list, function(_, stat) {
       row.append($("<th/>").text(stat.col_name));
     });
     table_element.append(row);
 
     // table body
-    $.each(player_list, function(rowIndex, player) {  // TODO remove rowIndex?
+    $.each(player_list, function(_, player) {
       var row = $("<tr/>");
-      $.each(stat_list, function(colIndex, stat) {
+      $.each(stat_list, function(_, stat) {
         row.append($("<td/>").text(getStat(player, stat.key_name)));
       });
       table_element.append(row);
@@ -90,7 +96,7 @@ function generateNewPlayerData(name_list) {
     player_data.push({
       number: i+1,
       name: name_list[i],
-      min: 0, // TODO date format
+      time: 550,
       two_pt: {made: 2, att: 3},
       three_pt: {made: 4, att: 5},
       free_throws: {made: 9, att: 10},
@@ -116,7 +122,7 @@ $(document).ready(function() {
   let stat_list = [
     {col_name: '#', key_name: 'number'},
     {col_name: 'Player', key_name: 'name'},
-    {col_name: 'MIN', key_name: 'min'},
+    {col_name: 'MIN', key_name: '#min'},
     {col_name: 'PTS', key_name: '#points'},
     {col_name: 'FGM', key_name: '#field_goals-made'},
     {col_name: 'FGA', key_name: '#field_goals-att'},
@@ -144,7 +150,7 @@ $(document).ready(function() {
 
   var team1_table = buildTable($('#team1_table'), stat_list, player_list_1);
   var team2_table = buildTable($('#team2_table'), stat_list, player_list_2);
-
+  
 });
 
 // console.log(stat_list);
