@@ -150,7 +150,7 @@ $(document).ready(function() {
 
   var team1_table = buildTable($('#team1_table'), stat_list, player_list_1);
   var team2_table = buildTable($('#team2_table'), stat_list, player_list_2);
-  
+
 });
 
 // console.log(stat_list);
