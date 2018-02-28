@@ -165,6 +165,7 @@ $(document).ready(function() {
 //   console.log('');
 // }
 
+
 // $(document).ready(function(){
 //   $("#shot_btn").click(function() {
 //     $("#someone").doSomething();
